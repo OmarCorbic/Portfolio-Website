@@ -36,13 +36,13 @@ function App() {
       </div>
       <button
         ref={btnRef}
-        className="flex z-[1000] items-center justify-center fixed m-1 border-2 rounded-full w-8 h-8 border-[#00FF85] bottom-0 right-0"
+        className="flex z-[9999] items-center justify-center fixed m-1 border-2 rounded-full w-6 h-6 border-[#00FF85] bottom-0 right-0"
         onClick={() => {
           const navbar = document.getElementById("navbar");
           navbar.scrollIntoView({ behavior: "smooth" });
         }}
       >
-        <FaArrowUp />
+        <FaArrowUp size={15} />
       </button>
     </div>
   );

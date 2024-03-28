@@ -41,7 +41,7 @@ const Projects = () => {
               An e-commerce website with login system, cart, wishlist, reviews
               and filters
             </p>
-            <div className="flex text-xs w-full gap-2">
+            <div className="flex justify-center text-xs w-full gap-2">
               <a
                 target="_blank"
                 href="https://github.com/OmarCorbic/Electronics-E-commerce"
@@ -60,7 +60,7 @@ const Projects = () => {
               An online browser game where you can play normal TicTacToe, or
               Super one that adds another layer
             </p>
-            <div className="flex text-xs w-full gap-2">
+            <div className="flex justify-center text-xs w-full gap-2">
               <a
                 target="_blank"
                 href="https://github.com/OmarCorbic/Super-TicTacToe-Online-Game"
