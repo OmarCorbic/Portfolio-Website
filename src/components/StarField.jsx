@@ -1,43 +1,30 @@
 import React, { useRef, useEffect } from "react";
-
 const StarField = () => {
-  const stars = Array(20).fill(null);
-  const containerRef = useRef(null);
-
-  useEffect(() => {
-    const container = containerRef.current;
-    const generateStars = () => {
-      if (container) {
-        while (container.firstChild) {
-          container.removeChild(container.firstChild);
-        }
-
-        const containerWidth = container.offsetWidth;
-        const containerHeight = container.offsetHeight;
-        stars.forEach(() => {
-          const x = Math.random() * containerWidth;
-          const y = Math.random() * containerHeight;
-          const size = Math.random() * 2 + 1; // Random size between 1px and 3px
-          const star = document.createElement("div");
-          star.style.left = x + "px";
-          star.style.top = y + "px";
-          star.style.width = size + "px";
-          star.style.height = size + "px";
-          star.classList.add("absolute", "bg-[#afbed6]", "rounded-full");
-          container.appendChild(star);
-        });
-      }
-    };
-
-    generateStars();
-    window.addEventListener("resize", generateStars);
-
-    return () => {
-      window.removeEventListener("resize", generateStars);
-    };
-  }, [containerRef]);
-
-  return <div ref={containerRef} className="relative h-screen w-screen"></div>;
+  return (
+    <div className="relative h-screen w-screen">
+      <div className="absolute w-[1px] h-[1px] bg-[#afbed6] rounded-full top-[5%] left-[10%]"></div>
+      <div className="absolute w-[2px] h-[2px] bg-[#afbed6] rounded-full top-[15%] left-[30%]"></div>
+      <div className="absolute w-[3px] h-[3px] bg-[#afbed6] rounded-full top-[25%] left-[50%]"></div>
+      <div className="absolute w-[1px] h-[1px] bg-[#afbed6] rounded-full top-[35%] left-[70%]"></div>
+      <div className="absolute w-[2px] h-[2px] bg-[#afbed6] rounded-full top-[45%] left-[90%]"></div>
+      <div className="absolute w-[3px] h-[3px] bg-[#afbed6] rounded-full top-[10%] left-[80%]"></div>
+      <div className="absolute w-[1px] h-[1px] bg-[#afbed6] rounded-full top-[20%] left-[60%]"></div>
+      <div className="absolute w-[2px] h-[2px] bg-[#afbed6] rounded-full top-[30%] left-[40%]"></div>
+      <div className="absolute w-[3px] h-[3px] bg-[#afbed6] rounded-full top-[40%] left-[20%]"></div>
+      <div className="absolute w-[1px] h-[1px] bg-[#afbed6] rounded-full top-[50%] left-[5%]"></div>
+      <div className="absolute w-[2px] h-[2px] bg-[#afbed6] rounded-full top-[60%] left-[25%]"></div>
+      <div className="absolute w-[3px] h-[3px] bg-[#afbed6] rounded-full top-[70%] left-[45%]"></div>
+      <div className="absolute w-[1px] h-[1px] bg-[#afbed6] rounded-full top-[80%] left-[65%]"></div>
+      <div className="absolute w-[2px] h-[2px] bg-[#afbed6] rounded-full top-[90%] left-[85%]"></div>
+      <div className="absolute w-[3px] h-[3px] bg-[#afbed6] rounded-full top-[15%] left-[5%]"></div>
+      <div className="absolute w-[1px] h-[1px] bg-[#afbed6] rounded-full top-[30%] left-[20%]"></div>
+      <div className="absolute w-[2px] h-[2px] bg-[#afbed6] rounded-full top-[45%] left-[35%]"></div>
+      <div className="absolute w-[3px] h-[3px] bg-[#afbed6] rounded-full top-[60%] left-[50%]"></div>
+      <div className="absolute w-[1px] h-[1px] bg-[#afbed6] rounded-full top-[75%] left-[65%]"></div>
+      <div className="absolute w-[2px] h-[2px] bg-[#afbed6] rounded-full top-[85%] left-[80%]"></div>
+      <div className="absolute w-[3px] h-[3px] bg-[#afbed6] rounded-full top-[95%] left-[95%]"></div>
+    </div>
+  );
 };
 
 export default StarField;

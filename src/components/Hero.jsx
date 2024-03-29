@@ -4,26 +4,13 @@ import Button from "./Button";
 
 const Hero = () => {
   return (
-    <div className="flex flex-col gap-10 sm:flex-row-reverse justify-between py-5">
-      <div className="flex items-center justify-center">
-        <div className="flex flex-col items-center justify-center gap-5">
-          <div className="rounded-full overflow-hidden border-2 border-white shadow-md shadow-cyan-400">
-            <img src={photo} width={200} height={200} alt="Personal photo" />
-          </div>
-          <p
-            style={{ textShadow: "cyan 1px 0 10px", letterSpacing: "1px" }}
-            className="color-white text-center text-base font-bold "
-          >
-            corbicomar@gmail.com
-          </p>
-        </div>
-      </div>
-      <div className="items-center sm:w-1/2 flex flex-col gap-5 sm:items-start">
-        <h3 className="text-2xl text-center font-black items-center justify-center sm:text-left lg:text-4xl">
+    <div className="flex flex-col gap-5 md:gap-10  sm:flex-row-reverse h-[80vh] justify-center items-center">
+      <div className="items-left sm:w-1/2 text-left flex flex-col gap-5 sm:items-start">
+        <h3 className="text-xl md:text-3xl  font-bold  lg:text-4xl">
           Hey, I'm Omar, a full stack{" "}
-          <span className="text-[#00FF85]">web developer</span>
+          <span className="text-white">web developer</span>
         </h3>
-        <h4 className="text-base text-center sm:text-left lg:text-2xl">
+        <h4 className="text-base  lg:text-xl">
           I create tomorrow's digital landscapes, today.
         </h4>
         <Button
@@ -33,6 +20,9 @@ const Hero = () => {
           }}
           text="Contact me"
         />
+      </div>
+      <div className="w-28 h-28 md:w-36 md:h-36 lg:w-44 lg:h-44 rounded-full overflow-hidden border-2 border-white shadow-md shadow-cyan-400">
+        <img src={photo} alt="Personal photo" />
       </div>
     </div>
   );

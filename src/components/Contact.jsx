@@ -66,10 +66,13 @@ const Contact = () => {
   return (
     <section className="" id="contactSection">
       <SectionTitle text="CONTACT ME" />
-      <div className="flex flex-col items-center justify-center">
-        <form onSubmit={handleSubmit} className=" flex flex-col gap-3">
+      <div className="flex flex-col items-center justify-center gap-2">
+        <form
+          onSubmit={handleSubmit}
+          className=" flex flex-col gap-3 bg-slate-400 dark:bg-transparent py-5 px-10 rounded-md text-white "
+        >
           <div className="flex flex-col">
-            <label className="text-[#00FF85] py-1" htmlFor="name">
+            <label className="dark:text-[#00FF85] py-1" htmlFor="name">
               Name
             </label>
             <input
@@ -84,7 +87,7 @@ const Contact = () => {
             )}
           </div>
           <div className="flex flex-col">
-            <label className="text-[#00FF85] py-1" htmlFor="email">
+            <label className="dark:text-[#00FF85] py-1" htmlFor="email">
               Email
             </label>
             <input
@@ -99,7 +102,7 @@ const Contact = () => {
             )}
           </div>
           <div className="flex flex-col">
-            <label className="text-[#00FF85] py-1" htmlFor="message">
+            <label className="dark:text-[#00FF85] py-1" htmlFor="message">
               Message
             </label>
             <textarea
@@ -132,6 +135,9 @@ const Contact = () => {
             <img className="w-8 h-8" src={linkedin} alt="Github" />
           </a>
         </div>
+        <p className="color-white text-center text-base ">
+          corbicomar@gmail.com
+        </p>
       </div>
     </section>
   );

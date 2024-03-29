@@ -1,13 +1,13 @@
 import React from "react";
 import development from "../images/development.png";
-import blob from "../images/blob1.svg";
 import SectionTitle from "./SectionTitle";
+import blob from "../images/blob1.svg";
 const About = () => {
   return (
-    <section className="" id="aboutSection">
+    <section className="flex flex-col" id="aboutSection">
       <SectionTitle text="ABOUT ME" />
       <div className="flex items-center">
-        <p>
+        <p className="md:w-2/3">
           As a passionate web developer immersed in the world of Information
           Technology, I'm constantly exploring the latest technologies and
           honing my skills, particularly in the{" "}
@@ -35,7 +35,12 @@ const About = () => {
           reality through clean, efficient code and captivating design. Join me
           on this journey as we shape the future of the web together.
         </p>
-        <img className="w-1/2 hidden md:block" src={development} alt="" />
+        <div
+          style={{ backgroundImage: `url(${blob})` }}
+          className=" bg-no-repeat w-1/2 bg-center bg-contain hidden md:flex items-center justify-center "
+        >
+          <img src={development} alt="" />
+        </div>
       </div>
     </section>
   );

@@ -46,9 +46,9 @@ const Projects = () => {
                 target="_blank"
                 href="https://github.com/OmarCorbic/Electronics-E-commerce"
               >
-                <Button className="lg:h-10" text="Source Code" />
+                <Button className="lg:h-10 w-28" text="Source Code" />
               </a>
-              <Button className="lg:h-10" text="View Demo" />
+              <Button className="lg:h-10 w-28" text="View Demo" />
             </div>
           </div>
           <Gallery photoWidth={photoWidth} photos={ecommerce} />
@@ -65,9 +65,9 @@ const Projects = () => {
                 target="_blank"
                 href="https://github.com/OmarCorbic/Super-TicTacToe-Online-Game"
               >
-                <Button className=" lg:h-10" text="Source Code" />
+                <Button className=" lg:h-10 w-28" text="Source Code" />
               </a>
-              <Button className=" lg:h-10" text="View Demo" />
+              <Button className=" lg:h-10 w-28" text="View Demo" />
             </div>
           </div>
           <Gallery photoWidth={photoWidth} photos={game} />
