@@ -6,6 +6,7 @@ import github from "../images/github.png";
 import emailjs from "@emailjs/browser";
 
 const Contact = () => {
+  const [success, setSuccess] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -30,18 +31,18 @@ const Contact = () => {
     const errors = { name: "", email: "", message: "" };
     if (!name) {
       errors.name = "Name is required";
-      return;
     }
     if (!email) {
       errors.email = "Email is required";
-      return;
     }
     if (!message) {
       errors.message = "Message is required";
-      return;
     }
 
-    setFormErrors(() => ({ ...errors }));
+    if (errors.name || errors.email || errors.message) {
+      setFormErrors(() => ({ ...errors }));
+      return;
+    }
     emailjs
       .send(
         "service_q5suqyb",
@@ -56,11 +57,15 @@ const Contact = () => {
       .then(
         (response) => {
           console.log("SUCCESS!", response.status, response.text);
+          setSuccess(true);
+          setTimeout(() => setSuccess(false), 5000);
         },
         (error) => {
           console.log("FAILED...", error);
+          setSuccess(false);
         }
       );
+    setFormErrors({ name: "", email: "", message: "" });
   };
 
   return (
@@ -83,7 +88,7 @@ const Contact = () => {
               name="name"
             />
             {formErrors.name && (
-              <div className="text-red-400 py-1">{formErrors.name}</div>
+              <div className="text-red-600  py-1">{formErrors.name}</div>
             )}
           </div>
           <div className="flex flex-col">
@@ -98,7 +103,7 @@ const Contact = () => {
               name="email"
             />
             {formErrors.email && (
-              <div className="text-red-400 py-1">{formErrors.email}</div>
+              <div className="text-red-600  py-1">{formErrors.email}</div>
             )}
           </div>
           <div className="flex flex-col">
@@ -114,10 +119,17 @@ const Contact = () => {
               rows="5"
             ></textarea>
             {formErrors.message && (
-              <div className="text-red-400 py-1">{formErrors.message}</div>
+              <div className="text-red-600  py-1">{formErrors.message}</div>
             )}
           </div>
-          <Button type="submit" text="Send" />
+          <div className="w-full flex items-center justify-center">
+            <Button type="submit" text="Send" />
+          </div>
+          {success && (
+            <div className="text-green-500 text-center">
+              Message sent successfully!
+            </div>
+          )}
         </form>
         <div className="flex items-center justify-center gap-5 w-full p-5">
           <div className=" flex-grow bg-slate-500 h-[1px] max-w-20 rounded-full"></div>

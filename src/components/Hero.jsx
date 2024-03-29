@@ -4,7 +4,7 @@ import Button from "./Button";
 
 const Hero = () => {
   return (
-    <div className="flex flex-col gap-5 md:gap-10  sm:flex-row-reverse h-[80vh] justify-center items-center">
+    <div className="flex flex-col gap-10 md:gap-10  sm:flex-row-reverse h-[80vh] justify-center items-center">
       <div className="items-left sm:w-1/2 text-left flex flex-col gap-5 sm:items-start">
         <h3 className="text-xl md:text-3xl  font-bold  lg:text-4xl">
           Hey, I'm Omar, a full stack{" "}

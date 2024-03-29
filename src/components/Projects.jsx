@@ -35,7 +35,7 @@ const Projects = () => {
       <SectionTitle text="MY PROJECTS" />
       <div className="flex flex-col gap-16 lg:px-10">
         <article className=" flex flex-col items-center lg:justify-end lg:gap-14 gap-5  md:flex-row">
-          <div className="text-center md:w-1/3 lg:items-start gap-3 md:text-left flex flex-col items-center justify-between">
+          <div className=" text-center md:w-1/3 lg:items-start gap-3 md:text-left flex flex-col items-center justify-between">
             <h4 className="text-[#00FF85] font-bold">Elecom</h4>
             <p>
               An e-commerce website with login system, cart, wishlist, reviews

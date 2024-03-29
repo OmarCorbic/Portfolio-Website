@@ -56,7 +56,7 @@ function App() {
       </div>
       <button
         ref={btnRef}
-        className="flex z-[9999] items-center justify-center fixed m-1 border-2 rounded-full w-6 h-6 border-[#00FF85] bottom-0 right-0"
+        className="flex z-[9999] items-center justify-center text-slate-900 dark:text-white fixed m-1 border-2 rounded-full w-6 h-6 border-[#00FF85] bottom-0 right-0"
         onClick={() => {
           const navbar = document.getElementById("navbar");
           navbar.scrollIntoView({ behavior: "smooth" });
