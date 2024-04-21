@@ -13,7 +13,7 @@ const Navbar = () => {
   return (
     <nav
       id="navbar"
-      className="relative flex flex-row items-center justify-between py-5"
+      className="absolute w-full z-[10000] px-[10%] flex flex-row items-center justify-between py-5"
     >
       <div>
         <h1 className="text-center text-base">OMAR CORBIC</h1>
@@ -33,7 +33,7 @@ const Navbar = () => {
       <div
         className={`${
           showLinks ? "h-auto px-4 py-2 rounded-md" : "h-0"
-        }  gap-2 absolute items-center text-sm bg-[#020014] overflow-hidden  top-[70%] right-0 sm:static flex flex-col sm:flex-row sm:bg-transparent sm:h-auto sm:gap-5`}
+        }  gap-2 absolute items-center text-sm font-bold bg-[#020014] overflow-hidden  top-[70%] right-0 sm:static flex flex-col sm:flex-row sm:bg-transparent sm:h-auto sm:gap-5`}
       >
         <button
           onClick={handleNavigate}

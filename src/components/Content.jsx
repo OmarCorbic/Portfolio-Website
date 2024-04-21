@@ -6,7 +6,7 @@ import Projects from "./Projects";
 
 const Content = () => {
   return (
-    <main className="flex flex-col gap-10 sm:gap-16 pb-10 text-slate-600 dark:text-white">
+    <main className="px-[8%] flex flex-col justify-start gap-10 sm:gap-16 pb-10 text-slate-600 dark:text-white ">
       <About />
       <Skills />
       <Projects />

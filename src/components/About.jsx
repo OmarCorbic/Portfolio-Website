@@ -28,12 +28,6 @@ const About = () => {
             sleek portfolio platforms
           </span>
           , and more.
-          <br />
-          <br />
-          Whether it's bringing a client's vision to life or creating innovative
-          digital experiences, I thrive on the challenge of turning ideas into
-          reality through clean, efficient code and captivating design. Join me
-          on this journey as we shape the future of the web together.
         </p>
         <div
           style={{ backgroundImage: `url(${blob})` }}

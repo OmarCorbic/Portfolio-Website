@@ -24,20 +24,23 @@ const skills = [
 ];
 
 const Skills = () => {
-  const [isAnimated, setIsAnimated] = useState(false);
+  const [isAnimated, setIsAnimated] = useState(true);
   return (
     <section
-      className="relative flex flex-col md:min-h-96 md:px-32 items-center"
+      className="relative flex flex-col md:min-h-96 items-center md:pb-10"
       id="skillsSection"
     >
       <SectionTitle text="MY SKILLS" />
 
       <div
-        className={`flex md:hidden  flex-wrap  items-center justify-center gap-10`}
+        className={`flex md:hidden  flex-wrap  items-center justify-center gap-5 md:gap-10`}
       >
         {skills?.map((skill, i) => {
           return (
-            <div key={i} className="flex flex-col items-center gap-3">
+            <div
+              key={i}
+              className="flex flex-col items-center gap-3 border-slate-400 dark:border-slate-900 border w-20 h-20 md:w-32 md:h-32 justify-center rounded-md bg-slate-200 dark:bg-[#01000c]"
+            >
               <img
                 className="w-10 h-10 lg:w-20 lg:h-20 "
                 src={skill.logo}
@@ -55,14 +58,20 @@ const Skills = () => {
         {skills?.map((skill, i) => {
           if (isAnimated) {
             return (
-              <div key={i} className="flex flex-col items-center gap-6">
+              <div
+                key={i}
+                className="flex flex-col items-center gap-6 border-slate-400 dark:border-slate-900 border w-20 h-20 md:w-32 md:h-32 justify-center rounded-md bg-slate-200 dark:bg-[#01000c]"
+              >
                 <RotatingCube key={i} image={skill.logo} />
                 <p className="text-lg font-bold">{skill.name}</p>
               </div>
             );
           } else {
             return (
-              <div key={i} className="flex flex-col items-center gap-3">
+              <div
+                key={i}
+                className="flex flex-col items-center gap-3 border-slate-400 dark:border-slate-900 border w-20 h-20 md:w-32 md:h-32 justify-center rounded-md bg-slate-200 dark:bg-[#01000c]"
+              >
                 <img
                   className="w-10 h-10 lg:w-20 lg:h-20 "
                   src={skill.logo}

@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from "react";
 import satellite from "../images/satellite.svg";
 const StarField = () => {
   return (
-    <div className="relative h-screen w-screen">
+    <div className="absolute h-full w-full hidden dark:block ">
       <div className="absolute  w-4 h-4 animate-fly top-2/3 -left-1/2 text-red-600 flex gap-2">
         <img src={satellite} alt="" />
       </div>
