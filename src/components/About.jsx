@@ -1,7 +1,7 @@
 import React from "react";
 import development from "../images/development.png";
 import SectionTitle from "./SectionTitle";
-import blob from "../images/blob-1.svg";
+import blob from "../images/blob-1.png";
 const About = () => {
   return (
     <section className="flex flex-col" id="aboutSection">

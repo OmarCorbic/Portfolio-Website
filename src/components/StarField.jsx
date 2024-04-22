@@ -1,9 +1,9 @@
-import React, { useRef, useEffect } from "react";
+import React from "react";
 import satellite from "../images/satellite.svg";
 const StarField = () => {
   return (
-    <div className="absolute h-full w-full hidden dark:block ">
-      <div className="absolute  w-4 h-4 animate-fly top-2/3 -left-1/2 text-red-600 flex gap-2">
+    <div className="absolute h-full w-full hidden dark:block">
+      <div className="absolute   w-4 h-4 animate-fly top-2/3 -left-1/2 text-red-600 flex gap-2">
         <img src={satellite} alt="" />
       </div>
       <div className="absolute w-[1px] h-[1px] bg-[#afbed6] rounded-full top-[5%] left-[10%]"></div>
