@@ -1,8 +1,8 @@
 import React from "react";
 import photo from "../images/omarcropped.jpg";
 import StarField from "./StarField";
-import frameDark from "../images/frameDark.svg";
-import frameLight from "../images/frameLight.svg";
+import frameDark from "../images/frame-dark.svg";
+import frameLight from "../images/frame-light.svg";
 
 const Hero = () => {
   return (
@@ -10,15 +10,15 @@ const Hero = () => {
       <StarField />
       <div
         style={{
-          backgroundImage: `url(${frameDark})`,
+          backgroundImage: `url("${frameDark}")`,
         }}
         className="absolute -bottom-[10px] left-0 w-full transform scale-x-[-1] h-full bg-cover bg-no-repeat bg-bottom hidden dark:block"
       ></div>
       <div
         style={{
-          backgroundImage: `url(${frameLight})`,
+          backgroundImage: `url("${frameLight}")`,
         }}
-        className="absolute bottom-0 left-0 w-full transform scale-x-[-1] h-full bg-cover bg-no-repeat bg-bottom block dark:hidden"
+        className="absolute -bottom-[10px] left-0 w-full transform scale-x-[-1] h-full bg-cover bg-no-repeat bg-bottom block dark:hidden"
       ></div>
       <div className="items-left sm:w-1/2 text-left flex flex-col gap-5 sm:items-start">
         <h3 className="text-lg md:text-3xl  font-black  lg:text-4xl">
@@ -39,7 +39,7 @@ const Hero = () => {
         </button>
       </div>
       <div className="w-24 h-24 md:w-36 md:h-36 lg:w-44 lg:h-44 rounded-full overflow-hidden border-2 border-white shadow-md shadow-cyan-400">
-        <img src={photo} alt="Personal photo" />
+        <img src={photo} width={250} height={250} alt="Personal photo" />
       </div>
     </div>
   );

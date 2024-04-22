@@ -1,7 +1,7 @@
 import React from "react";
 import development from "../images/development.png";
 import SectionTitle from "./SectionTitle";
-import blob from "../images/blob1.svg";
+import blob from "../images/blob-1.svg";
 const About = () => {
   return (
     <section className="flex flex-col" id="aboutSection">
@@ -30,7 +30,7 @@ const About = () => {
           , and more.
         </p>
         <div
-          style={{ backgroundImage: `url(${blob})` }}
+          style={{ backgroundImage: `url("${blob}")` }}
           className=" bg-no-repeat w-1/2 bg-center bg-contain hidden md:flex items-center justify-center "
         >
           <img src={development} alt="" />
