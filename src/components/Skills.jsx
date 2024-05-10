@@ -27,7 +27,7 @@ const Skills = () => {
   const [isAnimated, setIsAnimated] = useState(true);
   return (
     <section
-      className="relative flex flex-col md:min-h-96 items-center md:pb-10"
+      className="relative flex flex-col md:min-h-96 items-center md:pb-10 md:px-[10%]"
       id="skillsSection"
     >
       <SectionTitle text="MY SKILLS" />

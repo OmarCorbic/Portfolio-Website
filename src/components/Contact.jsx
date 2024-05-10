@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import SectionTitle from "./SectionTitle";
-import Button from "./Button";
 import linkedin from "../images/linkedin.png";
 import github from "../images/github.png";
 import emailjs from "@emailjs/browser";
+import StyledButton from "./StyledButton";
 
 const Contact = () => {
   const [success, setSuccess] = useState(false);
@@ -69,21 +69,20 @@ const Contact = () => {
   };
 
   return (
-    <section className="" id="contactSection">
+    <section
+      className="flex flex-col items-center justify-center"
+      id="contactSection"
+    >
       <SectionTitle text="CONTACT ME" />
-      <div className="flex flex-col items-center justify-center gap-2">
-        <form
-          onSubmit={handleSubmit}
-          className=" flex flex-col gap-3 bg-slate-400 dark:bg-transparent py-5 px-10 rounded-md text-white "
-        >
-          <div className="flex flex-col">
+      <div className="form-container flex flex-col items-center justify-center gap-2 w-full p-10 max-w-[500px]">
+        <form onSubmit={handleSubmit} className="form w-full">
+          <div className="form-group">
             <label className="dark:text-[#00FF85] py-1" htmlFor="name">
               Name
             </label>
             <input
               onChange={handleInputChange}
               value={formData.name}
-              className="bg-slate-200 rounded-sm outline-none focus:outline-2 focus:outline-[#005AE0]  text-slate-950 h-8 px-2 text-sm"
               type="text"
               name="name"
             />
@@ -91,14 +90,11 @@ const Contact = () => {
               <div className="text-red-600  py-1">{formErrors.name}</div>
             )}
           </div>
-          <div className="flex flex-col">
-            <label className="dark:text-[#00FF85] py-1" htmlFor="email">
-              Email
-            </label>
+          <div className="form-group">
+            <label htmlFor="email">Email</label>
             <input
               onChange={handleInputChange}
               value={formData.email}
-              className="bg-slate-200 rounded-sm outline-none focus:outline-2 focus:outline-[#005AE0] text-slate-950 h-8 px-2 text-sm"
               type="email"
               name="email"
             />
@@ -106,14 +102,11 @@ const Contact = () => {
               <div className="text-red-600  py-1">{formErrors.email}</div>
             )}
           </div>
-          <div className="flex flex-col">
-            <label className="dark:text-[#00FF85] py-1" htmlFor="message">
-              Message
-            </label>
+          <div className="form-group">
+            <label htmlFor="message">Message</label>
             <textarea
               onChange={handleInputChange}
               value={formData.message}
-              className="bg-slate-200 rounded-sm outline-none focus:outline-2 focus:outline-[#005AE0]  text-slate-950 py-2 px-2 text-sm"
               name="message"
               cols="30"
               rows="5"
@@ -123,7 +116,7 @@ const Contact = () => {
             )}
           </div>
           <div className="w-full flex items-center justify-center">
-            <Button type="submit" text="Send" />
+            <StyledButton type="submit" text="Send" />
           </div>
           {success && (
             <div className="text-green-500 text-center">

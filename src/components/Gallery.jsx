@@ -1,119 +1,120 @@
-import React, { useEffect, useRef, useState } from "react";
-import { GoTriangleLeft } from "react-icons/go";
+import React, { useEffect, useState } from "react";
+import { GrNext } from "react-icons/gr";
+import { IoPauseOutline } from "react-icons/io5";
+import { IoPlay } from "react-icons/io5";
 
-const Gallery = ({ photoWidth, photos = [] }) => {
-  const galleryRef = useRef(null);
-  const modalGalleryRef = useRef(null);
-  const [showGalleryModal, setShowGalleryModal] = useState(false);
+const Gallery = ({ photos = [] }) => {
+  const [autoChange, setAutoChange] = useState(true);
+  const [photoIndex, setPhotoIndex] = useState(0);
 
-  const handleGalleryClick = () => {
-    setShowGalleryModal(true);
+  useEffect(() => {
+    let interval = null;
+    if (autoChange) {
+      interval = setInterval(() => {
+        setPhotoIndex((prevIndex) => {
+          if (prevIndex + 1 > photos.length - 1) {
+            moveToIndex(0);
+            return 0;
+          } else {
+            return prevIndex + 1;
+          }
+        });
+      }, 7000);
+    }
+    return () => {
+      if (interval) {
+        clearInterval(interval);
+      }
+    };
+  }, [autoChange]);
+
+  const moveLeft = () => {
+    if (photoIndex - 1 < 0) {
+      return;
+    }
+
+    setAutoChange(false);
+    setPhotoIndex((prev) => prev - 1);
   };
 
-  const hideGalleryModal = (e) => {
-    if (e.target.id === "modalBg") {
-      setShowGalleryModal(false);
+  const moveRight = () => {
+    if (photoIndex + 1 > photos.length - 1) {
+      return;
     }
-  };
 
-  const scrollLeft = () => {
-    if (showGalleryModal) {
-      if (modalGalleryRef.current) {
-        modalGalleryRef.current.scrollBy({
-          left: "-" + modalGalleryRef.current.offsetWidth,
-          behavior: "smooth",
-        });
-      }
-    } else {
-      if (galleryRef.current) {
-        galleryRef.current.scrollBy({
-          left: "-" + galleryRef.current.offsetWidth,
-          behavior: "smooth",
-        });
-      }
-    }
+    setAutoChange(false);
+    setPhotoIndex((prev) => prev + 1);
   };
-
-  const scrollRight = () => {
-    if (showGalleryModal) {
-      if (modalGalleryRef.current) {
-        modalGalleryRef.current.scrollBy({
-          left: +modalGalleryRef.current.offsetWidth,
-          behavior: "smooth",
-        });
-      }
-    } else {
-      if (galleryRef.current) {
-        galleryRef.current.scrollBy({
-          left: galleryRef.current.offsetWidth,
-          behavior: "smooth",
-        });
-      }
+  const moveToIndex = (i) => {
+    if (i > photos.length - 1 || i < 0) {
+      return;
     }
+
+    setAutoChange(false);
+    setPhotoIndex(i);
   };
 
   return (
-    <div className="relative">
-      {showGalleryModal && (
-        <div
-          id="modalBg"
-          onClick={hideGalleryModal}
-          className="bg-black bg-opacity-75 flex items-center justify-center fixed top-0 left-0 h-screen w-screen z-[10000]"
-        >
-          <div className="relative  w-full md:w-5/6">
-            <button
-              id="modalBg"
-              onClick={hideGalleryModal}
-              className=" absolute top-1 right-1 z-[10000] px-2 text-white bg-slate-900 rounded-lg"
-            >
-              X
-            </button>
-            <div
-              ref={modalGalleryRef}
-              className=" items-center no-scrollbar  flex  bg-[#013380] border-2 border-[#005AE0 ] rounded-xl overflow-x-auto"
-            >
-              {photos?.map((photo, i) => {
-                return <img className="w-full" key={i} src={photo}></img>;
-              })}
-            </div>
-            <div className="absolute w-full top-0 left-0 flex items-center justify-between h-full">
-              <button onClick={scrollLeft} className=" text-3xl  text-red-500">
-                <GoTriangleLeft />
-              </button>
-
-              <button
-                onClick={scrollRight}
-                className=" rotate-180 text-3xl text-red-500"
-              >
-                <GoTriangleLeft />
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-      <div
-        style={{ width: photoWidth + "px" }}
-        ref={galleryRef}
-        className=" items-center no-scrollbar  flex  bg-[#013380] border-2 border-[#005AE0 ] rounded-xl overflow-x-auto"
-      >
-        {photos?.map((photo, i) => {
-          return <img className="w-full" key={i} src={photo}></img>;
-        })}
+    <div className="relative h-full w-full">
+      <div className="h-full w-full">
+        <img
+          src={
+            photos[photoIndex] &&
+            photos[photoIndex].src &&
+            photos[photoIndex].src
+          }
+          className="object-cover object-center h-full w-full"
+          alt={
+            photos[photoIndex] &&
+            photos[photoIndex].alt &&
+            photos[photoIndex].alt
+          }
+        />
       </div>
-      <div className="absolute w-full top-0 left-0 flex items-center justify-between h-full">
-        <button onClick={scrollLeft} className=" text-3xl  text-red-500">
-          <GoTriangleLeft />
-        </button>
+      <div className="absolute top-0 left-0 w-full h-full flex items-center">
+        <div className="absolute top-1 right-1 flex items-center justify-center">
+          <button
+            className={`${
+              autoChange ? "hidden" : "flex"
+            } items-center justify-center text-base hover:bg-black hover:bg-opacity-30 p-3 z-20  md:text-lg rounded-full  bg-opacity-50`}
+            onClick={() => setAutoChange(true)}
+          >
+            <IoPlay />
+          </button>
+          <button
+            className={`${
+              autoChange ? "flex" : "hidden"
+            } items-center justify-center text-base hover:bg-black hover:bg-opacity-30 p-3 z-20 md:text-lg rounded-full  bg-opacity-50`}
+            onClick={() => setAutoChange(false)}
+          >
+            <IoPauseOutline />
+          </button>
+        </div>
         <button
-          onClick={handleGalleryClick}
-          className="w-full h-full "
-        ></button>
-        <button
-          onClick={scrollRight}
-          className=" rotate-180 text-3xl text-red-500"
+          className="absolute left-1 transform z-10  scale-x-[-1] bg-opacity-55  w-20 h-[80%]  rounded-full flex items-center justify-end"
+          onClick={moveLeft}
         >
-          <GoTriangleLeft />
+          <GrNext />
         </button>
+        <button
+          className="absolute right-1  bg-opacity-55 z-10  w-20 h-[80%]  rounded-full flex items-center justify-end"
+          onClick={moveRight}
+        >
+          <GrNext />
+        </button>
+        <div className="flex items-center z-20 mt-auto justify-center w-full gap-3 py-1 md:py-2 bg-black bg-opacity-50">
+          {photos.map((_, i) => {
+            return (
+              <button
+                key={i}
+                className={`${
+                  photoIndex === i ? "bg-slate-100" : "bg-slate-500"
+                }  h-2 w-2 rounded-full`}
+                onClick={() => moveToIndex(i)}
+              ></button>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
