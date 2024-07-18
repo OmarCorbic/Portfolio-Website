@@ -60,7 +60,7 @@ const Projects = () => {
       description: "A static website for web design & development agency",
       photos: saltCityPhotos,
       sourceUrl: "https://github.com/OmarCorbic/Salt-City-Systems-Website",
-      demoUrl: "#",
+      demoUrl: "https://saltcitysystems.com",
     },
   ];
   return (
