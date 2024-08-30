@@ -27,7 +27,7 @@ const Skills = () => {
   const [isAnimated, setIsAnimated] = useState(true);
   return (
     <section
-      className="relative flex flex-col md:min-h-96 items-center md:pb-10 md:px-[10%]"
+      className="relative flex flex-col md:min-h-96 items-center md:pb-10 lg:px-[10%]"
       id="skillsSection"
     >
       <SectionTitle text="MY SKILLS" />
@@ -83,7 +83,7 @@ const Skills = () => {
           }
         })}
       </div>
-      <div className="hidden  absolute bottom-0 left-0 md:flex flex-col items-center  ">
+      <div className="hidden  absolute bottom-0 left-[10%] md:flex flex-col items-center  ">
         <span>Animation</span>
         <button
           onClick={() => setIsAnimated((prev) => !prev)}

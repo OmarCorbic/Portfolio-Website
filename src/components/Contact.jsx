@@ -70,7 +70,7 @@ const Contact = () => {
 
   return (
     <section
-      className="flex flex-col items-center justify-center"
+      className="flex flex-col items-center justify-center lg:px-[8%]"
       id="contactSection"
     >
       <SectionTitle text="CONTACT ME" />

@@ -4,7 +4,7 @@ import Gallery from "./Gallery";
 const ProjectCard = ({ project = {} }) => {
   return (
     <article className=" flex flex-col items-center justify-center w-full lg:gap-14 gap-5  md:flex-row">
-      <div className=" text-center md:w-1/3 lg:items-start gap-3 md:text-left flex flex-col items-center justify-between">
+      <div className=" text-center md:w-1/3 px-5 lg:items-start gap-3 md:text-left flex flex-col items-center justify-between">
         <h4 className="text-[#00FF85] font-bold">{project.title}</h4>
         <p>{project.description}</p>
         <div className="flex justify-center md:justify-start text-xs w-full gap-2">
@@ -24,7 +24,7 @@ const ProjectCard = ({ project = {} }) => {
           </a>{" "}
         </div>
       </div>
-      <div className="rounded-xl overflow-hidden max-w-[700px]">
+      <div className="rounded-xl overflow-hidden max-w-[800px] ">
         <Gallery photos={project.photos} />
       </div>
     </article>

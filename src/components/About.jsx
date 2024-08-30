@@ -4,7 +4,7 @@ import SectionTitle from "./SectionTitle";
 import blob from "../images/blob-1.png";
 const About = () => {
   return (
-    <section className="flex flex-col" id="aboutSection">
+    <section className="flex flex-col px-5 lg:px-[8%]" id="aboutSection">
       <SectionTitle text="ABOUT ME" />
       <div className="flex items-center">
         <p className="md:w-2/3">
