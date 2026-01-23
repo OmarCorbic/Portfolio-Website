@@ -12,7 +12,7 @@ export default {
             transform: "translateX(0px) translateY(0px) rotate(0deg)",
           },
           "100%": {
-            transform: "translateX(2000px) translateY(-300px) rotate(360deg)",
+            transform: "translateX(2500px) translateY(-300px) rotate(360deg)",
           },
         },
       },
